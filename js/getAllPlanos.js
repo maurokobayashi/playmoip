@@ -54,7 +54,7 @@ $(document).ready(function() {
 			periodicidade = montarPeriodicidade(plano);
 			
 			retorno += '    <tr>'
-			retorno += '        <td id="' + plano.plan_code + '">'+plano.plan_code+'</td>'
+			retorno += '        <td> <a id="' + plano.plan_code + '">'+plano.plan_code+'</a></td>'
 			retorno += '        <td>'+plano.name+'</td>'
 			retorno += '        <td>'+plano.description+'</td>'
 			retorno += '        <td>'+plano.created_at+'</td>'
