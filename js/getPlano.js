@@ -4,15 +4,9 @@ $(document).ready(function() {
 	  getPlan();
 	});
 	
-//  $('a[data-toggle="tab"]').on('shown', function (e) {
-// 		alert(e.target); // activated tab
-// 		alert(e.relatedTarget); // previous tab
-// 	})
-	
-	
-	var url = './mocks/planos.json';
-	
 	function getPlan() {
+	
+		var url = './mocks/planos.json';
 		$.ajax({
 			url: url,
 			type: 'GET',
@@ -25,8 +19,8 @@ $(document).ready(function() {
 				}
 			},
 			timeout: 30000, //30 segundos
-			success: function(planos, textStatus, jqXHR) {		
-				console.log(JSON.stringify(planos));
+			success: function(planos, textStatus, jqXHR) {
+			
 				var codigoPlano = $('#inputGetPlano').val();
 				
 				$.each(planos, function(i, plano) {
