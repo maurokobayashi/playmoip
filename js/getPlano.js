@@ -32,7 +32,7 @@ $(document).ready(function() {
 				$.each(planos, function(i, plano) {
 					if(plano.plan_code == codigoPlano) {
 						montarResultado(plano);
-						return;
+						break;
 					}
 					else {
 						montarSemResultado();
@@ -49,7 +49,7 @@ $(document).ready(function() {
 		
 		retorno += 'N&atilde;o houve resultados para o plano ' + codigoPlano;
 	
-		$("#results").html(retorno);
+		$("#getResult").html(retorno);
 	};
 	
 	var montarResultado = function(plano) {
@@ -89,7 +89,7 @@ $(document).ready(function() {
 		retorno += '    <tbody>';
 		retorno += '</table>';
 	
-		$("#results").html(retorno);
+		$("#getResult").html(retorno);
 	};
 	
 	
