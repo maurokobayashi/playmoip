@@ -8,7 +8,7 @@ $(document).ready(function() {
  	
  		
 	
-	$('#PL1').popover({
+	$('#EX1').popover({
 		title: 'title',
 		content: 'content'
 	})

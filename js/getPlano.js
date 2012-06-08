@@ -6,41 +6,45 @@ $(document).ready(function() {
 	
 	function getPlan() {
 	
-		var url = './mocks/planos.json';
-		$.ajax({
-			url: url,
-			type: 'GET',
-			dataType: 'json',
-			//jsonpCallback: 'cbk',
-			//crossDomain: true,
-			statusCode: {
-				404: function() {
-				  console.log("404: page not found");
-				}
-			},
-			timeout: 30000, //30 segundos
-			success: function(planos, textStatus, jqXHR) {
-			
-				var codigoPlano = $('#inputGetPlano').val();
-				
-				$.each(planos, function(i, plano) {
-					if(plano.plan_code == codigoPlano) {
-						montarResultado(plano);
-					}
-				});
-			}
-		});
-	}
-	
-	var montarSemResultado = function() {
-	
 		var codigoPlano = $('#inputGetPlano').val();
-		var retorno = '';
 		
-		retorno += 'N&atilde;o houve resultados para o plano ' + codigoPlano;
-	
-		$("#getResult").html(retorno);
-	};
+		if(codigoPlano == undefined || String(codigoPlano) == '') {
+			var retorno = 'Informe o c&oacute;digo do plano';	
+			$("#getResult").html(retorno);
+		}
+		else {
+			var url = './mocks/planos.json';
+			$.ajax({
+				url: url,
+				type: 'GET',
+				dataType: 'json',
+				//jsonpCallback: 'cbk',
+				//crossDomain: true,
+				statusCode: {
+					404: function() {
+					  console.log("404: page not found");
+					}
+				},
+				timeout: 30000, //30 segundos
+				success: function(planos, textStatus, jqXHR) {
+				
+					var codigoPlano = $('#inputGetPlano').val();
+					var encontrou = false;
+					$.each(planos, function(i, plano) {
+						if(plano.plan_code == codigoPlano) {
+							montarResultado(plano);
+							encontrou = true;
+						}
+					});
+					
+					if(!encontrou) {
+						var retorno = 'N&atilde;o houve resultados para o plano ' + codigoPlano;
+						$("#getResult").html(retorno);
+					}
+				}
+			});
+		}
+	}
 	
 	var montarResultado = function(plano) {
 	
