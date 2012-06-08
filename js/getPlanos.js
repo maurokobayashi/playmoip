@@ -61,7 +61,7 @@ getAllPlans.success(function(planos, textStatus, jqXHR) {
 	$("#results").html(retorno);
 });
 
-var monstarStatus = function(plano) {
+var montarStatus = function(plano) {
 
 	var labelStatus = '';
 
