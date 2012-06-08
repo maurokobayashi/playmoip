@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
 	$('#tabsPlanosHeader a:first').tab('show');
-	$('a[data-toggle="tab"]').on('shown', function (e) {
+	$('a[data-toggle="tab"]').on('show', function (e) {
  		if(e.target.hash == '#getAll') {
  			getAllPlans();
  		}
