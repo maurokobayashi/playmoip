@@ -32,7 +32,7 @@ $(document).ready(function() {
 				$.each(planos, function(i, plano) {
 					if(plano.plan_code == codigoPlano) {
 						montarResultado(plano);
-						break;
+						return;
 					}
 					else {
 						montarSemResultado();
