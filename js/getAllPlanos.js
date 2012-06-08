@@ -65,7 +65,7 @@ $(document).ready(function() {
 			retorno += '    </tr>'
 			
 			
-			$('#' + plano.plan_code).popover({	
+			$('#' + plano.plan_code).popover({
 				title: plano.plan_code + ' - ' + plano.name,
 				content: plano.description
 			});
