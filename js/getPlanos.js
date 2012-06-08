@@ -50,7 +50,6 @@ getAllPlans.success(function(planos, textStatus, jqXHR) {
 		retorno += '        <td>'+plano.created_at+'</td>'
 		retorno += '        <td>'+preco+'</td>'
 		retorno += '        <td>'+periodicidade+'</td>'
-		retorno += '        <td>'+plano.afiliacao+'</td>'
 		retorno += '        <td>'+status+'</td>'
 		retorno += '    </tr>'
     });
