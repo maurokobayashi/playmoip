@@ -6,7 +6,9 @@
         <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
         <link rel="shortcut icon" href="img/palheta_moip.jpg" type="image/x-icon" />
         <script type="text/javascript" src="js/jquery.js"></script>
-        <script type="text/javascript" src="js/getPlanos.js"></script>
+        <script type="text/javascript" src="js/planos.js"></script>
+        <script type="text/javascript" src="js/getPlano.js"></script>
+        <script type="text/javascript" src="js/getAllPlanos.js"></script>
     </head>
 
     <body>
@@ -61,7 +63,7 @@
 	
 				<div class="page-header">
 					
-					<ul class="nav nav-pills">
+					<ul class="nav nav-pills pull-right">
 						<li class="active">
 							<a href="planos.html">Planos</a>
 						</li>
@@ -94,19 +96,37 @@
 	
 				<div id="page-body">
 	
-					<ul id="tabs" class="nav nav-tabs">
-						<li class="active"><a href="#getall" data-toggle="tab">GET ALL</a></li>
+					<ul id="tabsPlanosHeader" class="nav nav-tabs">
 						<li><a href="#get" data-toggle="tab">GET</a></li>
+						<li><a href="#getAll" data-toggle="tab">GET ALL</a></li>
 						<li><a href="#put" data-toggle="tab">PUT</a></li>
 						<li><a href="#post" data-toggle="tab">POST</a></li>
 						<li><a href="#delete" data-toggle="tab">DELETE</a></li>
 					</ul>
 	
-					<div id="myTabContent" class="tab-content">
+					<div id="tabsPlanosBody" class="tab-content">
 	
-						<div class="tab-pane active" id="getall">
+						<div class="tab-pane fade" id="get">
+						
+							<div id="frmGetPlano" class="well form-search">
+								<input id="inputGetPlano" type="text" class="input-medium search-query" placeholder="c&oacute;digo do plano" />
+								<a id="btnGetPlano" class="btn btn-inverse">
+									<i class="icon-search icon-white"></i> Buscar
+								</a>
+								<br><br><i>(Ex.: "PL1", "PL2", "PL3", "PL4")</i>
+							</div>
 							
-							<div id="results">
+							<div id="getResult">
+								<div id="waiting"></div>
+							</div>
+							
+						</div>
+						
+						<div class="tab-pane" id="getAll">
+							
+							<div id="getAllResult">
+							
+								<div id="waiting"></div>
 								<table class="table table-striped">
 									<thead>
 										<tr>
@@ -121,7 +141,7 @@
 									</thead>
 									<tbody>
 										<tr>
-											<td>PL1</td>
+											<td><a id="EX1">EX1</a></td>
 											<td>Plano Infantil</td>
 											<td>Plano com canais infantis incluindo Power Rangers e os Tiranos do Espa&ccedil;o</td>
 											<td>05/06/2012 10:00:01</td>
@@ -132,33 +152,11 @@
 											</td>
 										</tr>
 										<tr>
-											<td>PL2</td>
+											<td>EX2</td>
 											<td>Plano Jovem</td>
 											<td>Plano com canais esportivos e seriados</td>
 											<td>05/06/2012 10:00:45</td>
 											<td>R$49,00</td>
-											<td>1 m&ecirc;s(es)</td>
-											<td>
-												<span class="label label-success">ativo</span>
-											</td>
-										</tr>
-										<tr>
-											<td>PL3</td>
-											<td>Plano Mulher</td>
-											<td>Plano com canais de variedades, filmes e muita fofoca</td>
-											<td>05/06/2012 10:02:12</td>
-											<td>R$49,00</td>
-											<td>1 m&ecirc;s(es)</td>
-											<td>
-												<span class="label label-success">ativo</span>
-											</td>
-										</tr>
-										<tr>
-											<td>PL4</td>
-											<td>Plano Adulto</td>
-											<td>Plano com canais adultos proibidos para menores</td>
-											<td>05/06/2012 10:03:43</td>
-											<td>R$69,00</td>
 											<td>1 m&ecirc;s(es)</td>
 											<td>
 												<span class="label label-success">ativo</span>
@@ -169,125 +167,16 @@
 							</div>
 						</div>
 						
-						<div class="tab-pane fade" id="get">
-						
-							<div id="frmGetPlano" class="well form-search">
-								<div id="waiting">
-								</div>
-								<input id="inputGetPlano" type="text" class="input-medium search-query" placeholder="c&oacute;digo do plano">
-								<a id="btnGetPlano" class="btn btn-inverse" href="#">
-									<i class="icon-search icon-white"></i> Buscar
-								</a>
-							</div>
-                    
-							<table class="table table-striped">
-								<thead>
-									<tr>
-										<th>c&oacute;digo</th>
-										<th>nome</th>
-										<th>descri&ccedil;&atilde;o</th>
-										<th>criado em</th>
-										<th>pre&ccedil;o</th>
-										<th>periodicidade</th>
-										<th>status</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td>PL1234</td>
-										<td>Plano Kids</td>
-										<td>Plano com canais infantis incluindo Power Rangers e os Tiranos do Espa&ccedil;o</td>
-										<td>05/06/2012 10:00:01</td>
-										<td>R$39,00</td>
-										<td>1 m&ecirc;s(es)</td>
-										<td>
-											<span class="label label-success">ativo</span>
-										</td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-						
 						<div class="tab-pane fade" id="put">
-							<table class="table table-striped">
-								<thead>
-									<tr>
-										<th>vendedor</th>
-										<th>porcentagem</th>
-										<th>bandeira</th>
-										<th>gateway</th>
-										<th>adquirente</th>
-										<th>plataforma</th>
-										<th>tef</th>
-										<th>status</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td>
-											<i class="icon-user"></i> Neo Cobran&ccedil;as<br>
-											<a class="muted">id: 432981 | login: neomatrix</a>
-										</td>
-										<td>100%</td>
-										<td>Mastercard</td>
-										<td>Moip</td>
-										<td>Cielo</td>
-										<td>Ecommerce</td>
-										<td><i class="icon-remove"/></td>
-										<td>
-											<span class="label label-success">ativo</span>
-										</td>
-									</tr>
-								</tbody>
-							</table>
+							Em constru&ccedil;&atilde;o...
 						</div>
-	
 	
 						<div class="tab-pane fade" id="post">
-							<h3>Configura&ccedil;&atilde;o de retentativas de autoriza&ccedil;&atilde;o por vendedor</h3>
-							<br>
-							<table class="table table-striped">
-								<thead>
-									<tr>
-										<th>vendedor</th>
-										<th>retentativa</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td>
-											<i class="icon-user"></i> Neo Cobran&ccedil;as<br>
-											<a class="muted">id: 432981 | login: neomatrix</a>
-										</td>
-										<td><i class="icon-ok"/></td>
-									</tr>
-									<tr>
-										<td>
-											<i class="icon-user"></i> Compre da Alemanha<br>
-											<a class="muted">id: 23523435 | login: comprdaalemanha</a>
-										</td>
-										<td><i class="icon-ok"/></td>
-									</tr>
-									<tr>
-										<td>
-											<i class="icon-user"></i> JogosNotNow<br>
-											<a class="muted">id: 4565 | login: jogos.ps3</a>
-										</td>
-										<td><i class="icon-ok"/></td>
-									</tr>
-									<tr>
-										<td>
-											<i class="icon-user"></i> Postos S&atilde;o Jo&atilde;o<br>
-											<a class="muted">id: 5981 | login: saojoao</a>
-										</td>
-										<td><i class="icon-ok"/></td>
-									</tr>
-								</tbody>
-							</table>
+							Em constru&ccedil;&atilde;o...
 						</div>
 						
 						<div class="tab-pane fade" id="delete">
-							<a>Em constru&ccedil;&atilde;o...</a>
+							Em constru&ccedil;&atilde;o...
 						</div>
 						
 					</div>
@@ -304,5 +193,7 @@
 	
 		<script type="text/javascript" src="js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="js/bootstrap-tab.js"></script>
+		<script type="text/javascript" src="js/bootstrap-tooltip.js"></script>
+		<script type="text/javascript" src="js/bootstrap-popover.js"></script>
 	</body>
 </html>
