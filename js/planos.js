@@ -46,6 +46,7 @@ var montarPeriodicidade = function(plano) {
 $(document).ready(function() {
 
 	$('#tabsPlanosHeader a:first').tab('show');
+
 	
 	/*
 	getAllPlans.done(function(msg) {
