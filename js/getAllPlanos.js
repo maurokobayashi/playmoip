@@ -8,8 +8,9 @@ $(document).ready(function() {
  	
  		
 	
-	$('#EX1').popover({
-		
+	$('#PL1').popover({
+		title: 'title',
+		content: 'content'
 	})
 	
 	function getAllPlans() {
