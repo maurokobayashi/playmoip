@@ -6,7 +6,10 @@
         <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
         <link rel="shortcut icon" href="img/palheta_moip.jpg" type="image/x-icon" />
         <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript" src="js/getPlano.js"></script><!-- 
+
         <script type="text/javascript" src="js/getPlanos.js"></script>
+ -->
     </head>
 
     <body>
@@ -61,7 +64,7 @@
 	
 				<div class="page-header">
 					
-					<ul class="nav nav-pills">
+					<ul class="nav nav-pills pull-right">
 						<li class="active">
 							<a href="planos.html">Planos</a>
 						</li>
@@ -107,6 +110,9 @@
 						<div class="tab-pane active" id="getall">
 							
 							<div id="results">
+							
+								<div id="waiting"></div>
+								
 								<table class="table table-striped">
 									<thead>
 										<tr>
@@ -172,40 +178,17 @@
 						<div class="tab-pane fade" id="get">
 						
 							<div id="frmGetPlano" class="well form-search">
-								<div id="waiting">
-								</div>
 								<input id="inputGetPlano" type="text" class="input-medium search-query" placeholder="c&oacute;digo do plano">
-								<a id="btnGetPlano" class="btn btn-inverse" href="#">
+								<a id="btnGetPlano" class="btn btn-inverse">
 									<i class="icon-search icon-white"></i> Buscar
 								</a>
+								<i>(Ex.: "PL1", "PL2", "PL3", "PL4")</i>
 							</div>
-                    
-							<table class="table table-striped">
-								<thead>
-									<tr>
-										<th>c&oacute;digo</th>
-										<th>nome</th>
-										<th>descri&ccedil;&atilde;o</th>
-										<th>criado em</th>
-										<th>pre&ccedil;o</th>
-										<th>periodicidade</th>
-										<th>status</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td>PL1234</td>
-										<td>Plano Kids</td>
-										<td>Plano com canais infantis incluindo Power Rangers e os Tiranos do Espa&ccedil;o</td>
-										<td>05/06/2012 10:00:01</td>
-										<td>R$39,00</td>
-										<td>1 m&ecirc;s(es)</td>
-										<td>
-											<span class="label label-success">ativo</span>
-										</td>
-									</tr>
-								</tbody>
-							</table>
+							
+							<div id="results">
+								<div id="waiting"></div>
+							</div>
+							
 						</div>
 						
 						<div class="tab-pane fade" id="put">

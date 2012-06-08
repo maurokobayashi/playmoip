@@ -8,7 +8,7 @@ var getAllPlans = $.ajax({
   //crossDomain: true,
   statusCode: {
     404: function() {
-      alert("404: page not found");
+      console.log("404: page not found");
     }
   },
   timeout: 30000 //30 segundos
@@ -104,9 +104,6 @@ var montarPeriodicidade = function(plano) {
 	
 	return periodicidade;
 };
-
-
-getAllPlans;
 
 
 /*
