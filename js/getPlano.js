@@ -32,10 +32,6 @@ $(document).ready(function() {
 				$.each(planos, function(i, plano) {
 					if(plano.plan_code == codigoPlano) {
 						montarResultado(plano);
-						return;
-					}
-					else {
-						montarSemResultado();
 					}
 				});
 			}
