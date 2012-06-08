@@ -1,96 +1,44 @@
 var url = './mocks/planos.json';
 
-$.getJSON(url, function(data) {
-
-	console.log(JSON.stringify(data));
-
-	var planos = data;
-	
-	var status='';
-	var preco = '';
-	var periodicidade = '';
-	var qtd = planos.length;
-	
-	var retorno='';
-	retorno += '<table class="table table-striped">'
-	retorno += '    <thead>'
-	retorno += '        <tr>'
-	retorno += '            <th>c&oacute;digo</th>'
-	retorno += '            <th>nome</th>'
-	retorno += '            <th>descri&ccedil;&atilde;o</th>'
-	retorno += '            <th>criado em</th>'
-	retorno += '            <th>pre&ccedil;o</th>'
-	retorno += '            <th>periodicidade</th>'
-	retorno += '            <th>status</th>'
-	retorno += '        </tr>'
-	retorno += '    </thead>'
-	retorno += '    <tbody>'
-
-	for (i = 0; i < qtd; i++){
-
-		status = montarStatus(planos[i]);
-		preco = montarPreco(planos[i]);
-		periodicidade = montarPeriodicidade(planos[i]);
-		
-		retorno += '    <tr>'
-		retorno += '        <td id="id">'+planos[i].plan_code+'</td>'
-		retorno += '        <td id="bandeira">'+planos[i].name+'</td>'
-		retorno += '        <td>'+planos[i].description+'</td>'
-		retorno += '        <td>'+planos[i].created_at+'</td>'
-		retorno += '        <td>'+preco+'</td>'
-		retorno += '        <td>'+periodicidade+'</td>'
-		retorno += '        <td>'+planos[i].afiliacao+'</td>'
-		retorno += '        <td>'+status+'</td>'
-		retorno += '    </tr>'
-	}
-
-	retorno += '    <tbody>'
-	retorno += '</table>'
-
-	$("#results").html(retorno);
+var getAllPlans = $.ajax({
+  url: url,
+  type: 'GET',
+  dataType: 'json',
+//   jsonpCallback: 'cbk',
+//   crossDomain: true,
+//   isLocal: true,
+  statusCode: {
+    404: function() {
+      alert("404: page not found");
+    }
+  },
+  timeout: 30000 //30 segundos
 });
 
-var monstarStatus = function(plano) {
+getAllPlans.success(function(data, textStatus, jqXHR) {
+  alert('SUCCESS: ' + textStatus + '\nJSON:\n' + JSON.stringify(data));
+});
 
-	var labelStatus = '';
+/*
+getAllPlans.done(function(msg) {
+	alert('DONE: ' + msg);
+});
 
-	if(plano.status == 'ativo') {
-		labelStatus = '<span class="label label-success">ativo</span>';
-	}
-	else if (plano.status == 'inativo') {
-		labelStatus = '<span class="label label-error">inativo</span>';
-	}
-	else if (plano.status == 'expirado') {
-		labelStatus = '<span class="label label-error">expirado</span>';
-	}
-	else {
-		labelStatus = '<span class="label label-inverse">desconhecido</span>';
-	}
-	
-	return labelStatus;
-};
+getAllPlans.fail(function(jqXHR, textStatus) {
+  alert('FAIL: ' + textStatus );
+});
 
-var montarPreco = function(plano) {
+getAllPlans.complete(function(jqXHR, textStatus) {
+  alert('COMPLETED: ' + textStatus );
+});
 
-	var preco = 'R$';
-	preco += plano.price;
+//do not works for jsonp requests
+getAllPlans.error(function(jqXHR, textStatus, errorThrown) {
+  alert('ERROR: ' + textStatus + '\nHTTP STATUS: ' + errorThrown );
+});
 
-	return preco;
-};
-
-var montarPeriodicidade = function(plano) {
-
-	var periodicidade = plano.periodicity.length;
-	
-	if(plano.periodicity.unit == 'day') {
-		periodicidade += ' dia(s)';
-	}
-	else if(plano.periodicity.unit == 'month') {
-		periodicidade += ' m&ecirc;s(es)';
-	}
-	else if(plano.periodicity.unit == 'year') {
-		periodicidade += 'ano(s)';
-	}
-	
-	return periodicidade;
-};
+getAllPlans.always(function() {
+	alert('ALWAYS');
+});
+*/
+getAllPlans;
