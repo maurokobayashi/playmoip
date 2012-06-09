@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>Playground Transparente | Moip Pagamentos</title>
+        <link href="../css/bootstrap.css" rel="stylesheet">
+        <link rel="shortcut icon" href="../img/palheta_moip.jpg" type="image/x-icon" />
+    </head>
+
+    <body>
+		<script language="javascript" src="../js/includes/navbar.js"></script>
+
+		<div class="row-fluid">
+			<div class="span1">&nbsp;</div>
+			
+			<div class="span10">
+	
+				<div class="page-header">
+					
+					<ul class="nav nav-pills pull-right">
+						<li>
+							<a href="instrucao_unica.html">Instru&ccedil;&atilde;o &Uacute;nica</a>
+						</li>
+						<li class="active">
+							<a href="transparente.html">Transparente</a>
+						</li>
+					</ul>
+					<br>
+					<h2 style="color:#FFCC00">{ transparente }</h2>
+					<a style="color:#585858">requisi&ccedil;&otilde;es de pagamentos via post transparente.</a>
+				</div>
+	
+				<div id="page-body">
+			
+					<div id="token">					
+						<input id="inputToken" type="text" class="input-medium search-query span6" placeholder="informe o token da instru&ccedil;&atilde;o" />
+						<a id="btnPlay" class="btn btn-inverse">
+							<i class="icon-play icon-white"></i> play!
+						</a>
+					</div>
+			
+					<br>
+					<ul id="tabsTransparenteHeader" class="nav nav-tabs">
+						<li><a href="#cartao" data-toggle="tab">cart&atilde;o de cr&eacute;dito</a></li>
+						<li><a href="#debito" data-toggle="tab">d&eacute;bito online</a></li>
+						<li><a href="#boleto" data-toggle="tab">boleto</a></li>
+						<li><a href="#parcelas" data-toggle="tab">c&aacute;lculo de parcelas</a></li>
+					</ul>
+					
+					<div id="tabsTransparenteBody" class="tab-content">
+
+						<div class="tab-pane fade" id="cartao">
+						
+							<div id="results">
+								
+							</div>
+							
+							<label>Pagamento:</label>
+							<select id="parcelas" class="span1">
+								<option value="1">1x</option>
+								<option value="2">2x</option>
+								<option value="3">3x</option>
+								<option value="4">4x</option>
+								<option value="5">5x</option>
+								<option value="6">6x</option>
+								<option value="7">7x</option>
+								<option value="8">8x</option>
+								<option value="9">9x</option>
+								<option value="10">10x</option>
+								<option value="11">11x</option>
+								<option value="12">12x</option>
+								<option value="48">48x</option>
+							</select>
+							&nbsp;
+							<select id="forma" class="span2">
+							  <option value="cartao">Cart&atilde;o de Cr&eacute;dito</option>
+							  <option value="cofre">Cofre</option>
+							</select>
+							
+							<div id="dadosPagamento">
+								<label>Bandeira</label>
+								<select id="instituicao">
+								  <option value="Visa">Visa</option>
+								  <option value="Mastercard">Mastercard</option>
+								  <option value="AmericanExpress">AmericanExpress</option>
+								  <option value="Diners">Diners</option>
+								  <option value="Hipercard">Hipercard</option>
+								  <option value="EstefanCard">EstefanCard</option>
+								</select>
+								
+								<label>N&uacute;mero:</label>
+								<input id="numero" class="span3" type="text" placeholder="n&uacute;mero do cart&atilde;o" value="4073020000000002">
+								
+								<label>Expira&ccedil;&atilde;o / CVV</label>
+								<input id="expiracao" class="span1" type="text" value="12/15" placeholder="mm/aa">
+								<input id="cvv" class="span1" type="text" value="123" placeholder="123">
+								
+								<label>Portador:</label>
+								<input type="text" id="portador" value="Lyoto Machida">
+								
+								<label>CPF:</label>
+								<input type="text" id="cpf" value="888.457.824-84">
+								
+								<label>Data Nascimento:</label>
+								<input type="text" id="nascimento" value="17/11/1988">
+								
+								<label>Telefone:</label>
+								<input type="text" id="telefone" value="(12) 9999-9999">
+								<br>
+								<br>
+							</div>
+							
+						</div>
+						<div class="tab-pane fade" id="debito">
+						
+						</div>
+						<div class="tab-pane fade" id="boleto">
+						
+						</div>
+						<div class="tab-pane fade" id="parcelas">
+						
+						</div>
+					</div>
+			  </div>
+			  
+			  <div class="span1">&nbsp;</div>
+		</div>
+		
+		<div id="MoipWidget" data-token="" callback-method-success="sucesso" callback-method-error="erro"></div>
+        
+        <script type="text/javascript" src="../js/jquery.js"></script>
+		<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/transparente.js"></script>
+		<script type='text/javascript' src="https://desenvolvedor.moip.com.br/sandbox/transparente/MoipWidget-v2.js"></script>
+	</body>
+</html>

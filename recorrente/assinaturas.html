@@ -2,56 +2,13 @@
 <html lang="pt-br">
     <head>
         <title>Playground Recorrente | Moip Pagamentos</title>
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-        <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
+        <link href="../css/bootstrap.css" rel="stylesheet">
         <link rel="shortcut icon" href="img/palheta_moip.jpg" type="image/x-icon" />
-        <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript" src="../js/jquery.js"></script>
     </head>
 
     <body>
-
-		<div class="navbar navbar-fixed-top">
-			<div class="navbar-inner">
-				<div class="container">
-					<b><a class="brand" href="index.html">PlayMoip</a></b>
-					<ul class="nav">
-						<li class="divider-vertical"></li>
-						<li><a href="#">Home</a></li>
-						<li><a href="#">Transparente</a></li>
-						<li><a href="#">Pagamento Direto</a></li>
-						<li class="active"><a href="#">Recorrente</a></li>
-						<li><a href="#">Cadastro Integrado</a></li>
-						<li><a href="#">Notifica&ccedil;&otilde;es</a></li>
-						<li class="divider-vertical"></li>
-					</ul>
-					<img class="pull-right" src="img/moip.png" width="60" height="32" style="padding: 5px"/>              
-					<ul class="nav nav-pills pull-right">
-						<li class="dropdown" id="moip-land">
-							<a class="dropdown-toggle" data-toggle="dropdown" href="#moip-land">
-							  moipLand
-							  <b class="caret"></b>
-							</a>
-							<ul class="dropdown-menu">
-								<li>
-									<a href="#"><i class="icon-home"></i> configMoip <i class="icon-chevron-left"></i></a>
-								</li>
-								<li>
-									<a href="http://maurokobayashi.github.com/integra-moip"><i class="icon-shopping-cart"></i> integraMoip</a>
-								</li>
-								<li>
-									<a href="#"><i class="icon-play"></i> playMoip</a>
-								</li>
-								<li class="divider"></li>
-								<li>
-									</i><a href="http://labs.moip.com.br"><i class="icon-user"></i> moiplabs</a>
-								</li>
-							</ul>
-						</li>
-					</ul>
-					
-				</div>
-			</div>
-		</div>
+		<script language="javascript" src="../js/includes/navbar.js"></script>
 
 		<div class="row-fluid">
 			<div class="span1">&nbsp;</div>
@@ -85,9 +42,8 @@
 					</ul>
 					
 					<br>
-					<h1>Assinaturas</h1>
-					<br>
-					Configura&ccedil;&otilde;es de assinaturas recorrentes.
+					<h2 style="color:#FFCC00">{ assinaturas }</h2>
+					<a style="color:#585858">configura&ccedil;&otilde;es de assinaturas recorrentes</a>
 	
 				</div>
 	
@@ -126,15 +82,14 @@
 					</div>
 					
 					<hr>
-					
-					<div class="alert alert-info">
-						Todas as informa&ccedil;&otilde;es apresentadas s&atilde;o apenas exemplos de poss&iacute;veis configura&ccedil;&otilde;es.
-					</div>
 			  </div>
 			  <div class="span1">&nbsp;</div>
 	
 		</div>
-	
-		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		
+		<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+		<script>
+			$('#tabsAssinaturasHeader a:first').tab('show');
+		</script>
 	</body>
 </html>
