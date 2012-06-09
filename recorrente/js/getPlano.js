@@ -9,7 +9,15 @@ $(document).ready(function() {
 		var codigoPlano = $('#inputGetPlano').val();
 		
 		if(codigoPlano == undefined || String(codigoPlano) == '') {
-			var retorno = 'Informe o c&oacute;digo do plano';	
+			
+			var retorno = '';
+			var mensagem = 'Informe o c&oacute;digo do plano';	
+			
+			retorno += '<div class="alert alert-error">';
+			retorno += '<a class="close" data-dismiss="alert" href="#">x</a>';
+			retorno += mensagem;
+			retorno += '</div>';
+			
 			$("#getResult").html(retorno);
 		}
 		else {
@@ -38,7 +46,15 @@ $(document).ready(function() {
 					});
 					
 					if(!encontrou) {
-						var retorno = 'N&atilde;o houve resultados para o plano ' + codigoPlano;
+					
+						var retorno = '';
+						var mensagem = 'N&atilde;o houve resultados para o plano ' + codigoPlano;
+						
+						retorno += '<div class="alert">';
+						retorno += '<a class="close" data-dismiss="alert" href="#">x</a>';
+						retorno += mensagem;
+						retorno += '</div>';
+						
 						$("#getResult").html(retorno);
 					}
 				}
