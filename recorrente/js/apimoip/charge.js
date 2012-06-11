@@ -1,11 +1,15 @@
 $(document).ready(function() {
 
+    $('#dados_cofre').hide();
+
     $('#ckbUsarCofre').click(function() {
         if($('#ckbUsarCofre').is(':checked')) {
             $('#dados_cartao').hide();
+            $('#dados_cofre').show();
         }
         else {
 	        $('#dados_cartao').show();
+            $('#dados_cofre').hide();
         }
 	});
 
