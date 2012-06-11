@@ -5,9 +5,6 @@
         <link href="../css/bootstrap.css" rel="stylesheet">
         <link rel="shortcut icon" href="../img/palheta_moip.jpg" type="image/x-icon" />
         <script type="text/javascript" src="../js/jquery.js"></script>
-        <script type="text/javascript" src="js/planos.js"></script>
-        <script type="text/javascript" src="js/getPlano.js"></script>
-        <script type="text/javascript" src="js/getAllPlanos.js"></script>
     </head>
 
     <body>
@@ -76,7 +73,7 @@
                                     <a style="font-weight:bold">DADOS DA TRANSA&Ccedil;&Atilde;O:</a>
                                     <br><br>
 
-                                    <label>Valor (centavos) / Login Vendedor:</label>
+                                    <label>Valor (em centavos) / Login Vendedor:</label>
                                     <input id="valor" class="span1" type="text" placeholder="R&#36;">
                                     &nbsp;&nbsp;&nbsp;
 								    <input id="login_vendedor" type="text" class="span2" placeholder="login moip">
@@ -105,9 +102,9 @@
 								    <input id="periodicidade_quantidade" type="text" class="span1" placeholder="a cada">
                                     
                                     <select id="periodicidade_unidade" class="span1">
-								      <option value="dia">dias</option>
-								      <option value="mes"> meses</option>
-								      <option value="ano"> anos</option>
+								      <option value="dia">dia</option>
+								      <option value="mes"> m&ecirc;s</option>
+								      <option value="ano"> ano</option>
                                     </select>
                                 </div>
 
@@ -116,58 +113,70 @@
                                     <a style="font-weight:bold">DADOS DO PAGAMENTO:</a>
                                     <br><br>
 
-                                    <label>Bandeira</label>
-								    <select id="instituicao">
-								      <option value="Visa">Visa</option>
-								      <option value="Mastercard">Mastercard</option>
-								      <option value="EstefanCard">EstefanCard</option>
-								    </select>
+                                    <label class="checkbox">
+                                        <input id="ckbUsarCofre" type="checkbox"> Cobrar com cofre
+                                    </label>
 
-								    <label>Cofre:</label>
-								    <input id="cofre" type="text" placeholder="token do cofre">
+                                    <div id="dados_cofre">
+								        <input id="cofre" type="text" placeholder="token do cofre">
+                                    </div>
 
-								    <label>N&uacute;mero:</label>
-								    <input id="numero" type="text" placeholder="n&uacute;mero do cart&atilde;o">
-                                    <br>								
-								    <label>CVV / Data de Expira&ccedil;&atilde;o:</label>
-                                    <input id="cvv" class="span1" type="text" placeholder="CVV">
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <select id="expiracao_mes" class="span1">
-								      <option value="1">Jan</option>
-								      <option value="2">Fev</option>
-								      <option value="3">Mar</option>
-								      <option value="4">Abr</option>
-								      <option value="5">Mai</option>
-								      <option value="6">Jun</option>
-								      <option value="7">Jul</option>
-								      <option value="8">Ago</option>
-								      <option value="9">Set</option>
-								      <option value="10">Out</option>
-								      <option value="11">Nov</option>
-								      <option value="12">Dez</option>
-								      <option value="99">Estefan</option>
-								    </select>
-                                    /
-                                    <select id="expiracao_ano" class="span1">
-								      <option value="2012">2012</option>
-								      <option value="2013">2013</option>
-								      <option value="2014">2014</option>
-								      <option value="2015">2015</option>
-								      <option value="2016">2016</option>
-								      <option value="2017">2017</option>
-								      <option value="1994">1994 - &eacute; tetra</option>
-								    </select>
+                                    <div id="dados_cartao">
+                                        <label>Bandeira:</label>
+								        <select id="bandeira">
+								          <option value="">Selecione</option>
+								          <option value="Visa">Visa</option>
+								          <option value="Mastercard">Mastercard</option>
+								          <option value="EstefanCard">EstefanCard</option>
+								        </select>
+                                        <label>N&uacute;mero do cart&atilde;o:</label>
+								        <input id="numero_cartao" type="text" placeholder="">						
+								        <label>Data de Expira&ccedil;&atilde;o:</label>
+                                        <select id="expiracao_mes" class="span1">
+								          <option value="">M&ecirc;s</option>
+								          <option value="1">Jan</option>
+								          <option value="2">Fev</option>
+								          <option value="3">Mar</option>
+								          <option value="4">Abr</option>
+								          <option value="5">Mai</option>
+								          <option value="6">Jun</option>
+								          <option value="7">Jul</option>
+								          <option value="8">Ago</option>
+								          <option value="9">Set</option>
+								          <option value="10">Out</option>
+								          <option value="11">Nov</option>
+								          <option value="12">Dez</option>
+								          <option value="99">Estefan</option>
+								        </select>
+                                        /
+                                        <select id="expiracao_ano" class="span1">
+								          <option value="">Ano</option>
+								          <option value="2012">2012</option>
+								          <option value="2013">2013</option>
+								          <option value="2014">2014</option>
+								          <option value="2015">2015</option>
+								          <option value="2016">2016</option>
+								          <option value="2017">2017</option>
+								          <option value="1994">1994 - &eacute; tetra</option>
+								        </select>
 
-								    <label>Nome Completo:</label>
-								    <input type="text" id="portador_nome" placeholder="como aparece no cart&atilde;o">
+                                        <br><br>
+                                        <a style="font-weight:bold">DADOS DO PORTADOR:</a>
+                                        <br><br>
+
+								        <label>Nome Completo:</label>
+								        <input type="text" id="portador_nome" placeholder="como aparece no cart&atilde;o">
 								
-								    <label>CPF:</label>
-								    <input type="text" id="portador_cpf" class="span2" placeholder="xxx.xxx.xxx-xx">
-								    <label>Data de Nascimento:</label>
-								    <input type="text" id="portador_nascimento" class="span2" placeholder="dd/mm/aaaa">
+								        <label>CPF:</label>
+								        <input type="text" id="portador_cpf" class="span2" placeholder="xxx.xxx.xxx-xx">
+								        <label>Data de Nascimento:</label>
+								        <input type="text" id="portador_nascimento" class="span2" placeholder="dd/mm/aaaa">
 								
-								    <label>Telefone:</label>
-								    <input type="text" id="portador_telefone" class="span2" placeholder="(xx) xxxx-xxxx">
+								        <label>Telefone:</label>
+								        <input type="text" id="portador_telefone" class="span2" placeholder="(xx) xxxx-xxxx">
+                                    </div>
+                                    
+                                    
                                 </div>
 
                                 <div id="formulario_assinante" class="span4">
@@ -182,7 +191,7 @@
 								    <input type="text" id="assinante_email" placeholder="emal@dominio.com">
 								    
 								    <label>Telefone:</label>
-								    <input type="text" id="portador_telefone" placeholder="(xx) xxxx-xxxx">
+								    <input type="text" id="assinante_telefone" placeholder="(xx) xxxx-xxxx">
                                     
                                     <label>Id Pr&oacute;prio:</label>
 								    <input type="text" id="assinante_id_proprio" placeholder="">
@@ -199,24 +208,34 @@
                                     <input type="text" id="assinante_cidade" class="span2" placeholder="cidade">
                                     &nbsp;
                                     <select id="assinante_estado" class="span1">
+								      <option value="">UF</option>
 								      <option value="AC">AC</option>
 								      <option value="SP">SP</option>
 								      <option value="RJ">RJ</option>
-								      <option value="etc">etc</option>
                                     </select>
                                     <br>
                                     <select id="assinante_pais" class="span1">
+								      <option value="">Pa&iacute;s</option>
 								      <option value="BRA">BRA</option>
 								      <option value="EUA">EUA</option>
 								      <option value="JAP">JAP</option>
-								      <option value="etc">etc</option>
                                     </select>
                                     &nbsp;
                                     <input type="text" id="assinante_cep" class="span2" placeholder="cep">
                                     <br><br>
                                     <a id="btnPlay" class="btn btn-inverse">
-							            <i class="icon-play icon-white"></i> play!
+							            <i class="icon-repeat icon-white"></i> criar cobranca recorrente
 						            </a>
+
+                                    <a id="btnPreencher" class="btn btn-inverse">
+							            <i class="icon-ok icon-white"></i>
+						            </a>
+
+                                    <a id="btnLimpar" class="btn btn-inverse">
+							            <i class="icon-remove icon-white"></i>
+						            </a>
+
+
                                 </div>
 
                             </div>
@@ -238,6 +257,7 @@
 	
 		<script type="text/javascript" src="../js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="../js/bootstrap-tab.js"></script>
+		<script type="text/javascript" src="js/apimoip/charge.js"></script>
 		<script>
 			$('#tabsMoipHeader a:first').tab('show');
 		</script>
