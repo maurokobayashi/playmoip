@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>Playground Recorrente | Moip Pagamentos</title>
+        <link href="../css/bootstrap.css" rel="stylesheet">
+        <link rel="shortcut icon" href="../img/palheta_moip.jpg" type="image/x-icon" />
+        <script type="text/javascript" src="../js/jquery.js"></script>
+        <script type="text/javascript" src="js/planos.js"></script>
+        <script type="text/javascript" src="js/getPlano.js"></script>
+        <script type="text/javascript" src="js/getAllPlanos.js"></script>
+    </head>
+
+    <body>
+		<script language="javascript" src="../js/includes/navbar.js"></script>
+
+		<div class="row-fluid">
+			<div class="span1">&nbsp;</div>
+			
+			<div class="span10">
+	
+				<div class="page-header">
+					
+					<ul class="nav nav-pills pull-right">
+						<li class="active">
+							<a href="api_moip.html">API Moip</a>
+						</li>
+						<li>
+							<a href="planos.html">Planos</a>
+						</li>
+						<li>
+							<a href="clientes.html">Clientes</a>
+						</li>
+						<li>
+							<a href="assinaturas.html">Assinaturas</a>
+						</li>
+						<li>
+							<a href="cobrancas.html">Cobran&ccedil;as</a>
+						</li>
+						<li>
+							<a href="adicionais.html">Adicionais</a>
+						</li>
+						<li>
+							<a href="cupons.html">Cupons</a>
+						</li>
+						<li>
+							<a href="formas_pagamento.html">Formas de Pagamento</a>
+						</li>
+					</ul>
+					
+					<br>
+					<h2 style="color:#FFCC00">{ api moip }</h2>
+					<a style="color:#585858">api's de pagamentos recorrentes do moip</a>
+	
+				</div>
+	
+				<div id="page-body">
+	
+					<ul id="tabsMoipHeader" class="nav nav-tabs">
+						<li><a href="#cobranca" data-toggle="tab">COBRAN&Ccedil;A</a></li>
+						<li><a href="#formas_pagamento" data-toggle="tab">FORMAS DE PAGAMENTO</a></li>
+						<li><a href="#autenticacao" data-toggle="tab">AUTENTICA&Ccedil;&Atilde;O</a></li>
+					</ul>
+	
+					<div id="tabsMoipBody" class="tab-content">
+	
+						<div class="tab-pane fade" id="cobranca">
+						
+							<div id="mensagens">
+								
+							</div>
+
+                            <div id="formulario" class="row">
+
+                                <div id="formulario_transacao" class="span4">
+
+                                    <a style="font-weight:bold">DADOS DA TRANSA&Ccedil;&Atilde;O:</a>
+                                    <br><br>
+
+                                    <label>Valor (centavos) / Login Vendedor:</label>
+                                    <input id="valor" class="span1" type="text" placeholder="R&#36;">
+                                    &nbsp;&nbsp;&nbsp;
+								    <input id="login_vendedor" type="text" class="span2" placeholder="login moip">
+                                    <label>Id Pr&oacute;prio:</label>
+								    <input id="transacao_id_proprio" type="text" placeholder="">
+                                    <label>Id Assinatura:</label>
+								    <input id="assinatura_id_proprio" type="text" placeholder="">
+                                    <label>Descri&ccedil;&atilde;o:</label>
+								    <input id="descricao" type="text" placeholder="">
+                                    <label>An&aacute;lise de Risco?</label>
+                                    <div class="control-group">
+                                        <div class="controls">
+                                            <label class="radio inline">
+                                                <input type="radio" name="optionsRadios" id="analise_risco_sim" value="sim" checked="">
+                                                Sim
+                                            </label>
+                                            <label class="radio inline">
+                                                <input type="radio" name="optionsRadios" id="analise_risco_nao" value="nao">
+                                                N&atilde;o
+                                          </label>
+                                        </div>
+                                    </div>
+                                    <label>Ocorr&ecirc;ncia / Periodicidade:</label>
+                                    <input id="ocorrencia" class="span1" type="text" placeholder="#">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								    <input id="periodicidade_quantidade" type="text" class="span1" placeholder="a cada">
+                                    
+                                    <select id="periodicidade_unidade" class="span1">
+								      <option value="dia">dias</option>
+								      <option value="mes"> meses</option>
+								      <option value="ano"> anos</option>
+                                    </select>
+                                </div>
+
+                                <div id="formulario_pagamento" class="span4">
+
+                                    <a style="font-weight:bold">DADOS DO PAGAMENTO:</a>
+                                    <br><br>
+
+                                    <label>Bandeira</label>
+								    <select id="instituicao">
+								      <option value="Visa">Visa</option>
+								      <option value="Mastercard">Mastercard</option>
+								      <option value="EstefanCard">EstefanCard</option>
+								    </select>
+
+								    <label>Cofre:</label>
+								    <input id="cofre" type="text" placeholder="token do cofre">
+
+								    <label>N&uacute;mero:</label>
+								    <input id="numero" type="text" placeholder="n&uacute;mero do cart&atilde;o">
+                                    <br>								
+								    <label>CVV / Data de Expira&ccedil;&atilde;o:</label>
+                                    <input id="cvv" class="span1" type="text" placeholder="CVV">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <select id="expiracao_mes" class="span1">
+								      <option value="1">Jan</option>
+								      <option value="2">Fev</option>
+								      <option value="3">Mar</option>
+								      <option value="4">Abr</option>
+								      <option value="5">Mai</option>
+								      <option value="6">Jun</option>
+								      <option value="7">Jul</option>
+								      <option value="8">Ago</option>
+								      <option value="9">Set</option>
+								      <option value="10">Out</option>
+								      <option value="11">Nov</option>
+								      <option value="12">Dez</option>
+								      <option value="99">Estefan</option>
+								    </select>
+                                    /
+                                    <select id="expiracao_ano" class="span1">
+								      <option value="2012">2012</option>
+								      <option value="2013">2013</option>
+								      <option value="2014">2014</option>
+								      <option value="2015">2015</option>
+								      <option value="2016">2016</option>
+								      <option value="2017">2017</option>
+								      <option value="1994">1994 - &eacute; tetra</option>
+								    </select>
+
+								    <label>Nome Completo:</label>
+								    <input type="text" id="portador_nome" placeholder="como aparece no cart&atilde;o">
+								
+								    <label>CPF:</label>
+								    <input type="text" id="portador_cpf" class="span2" placeholder="xxx.xxx.xxx-xx">
+								    <label>Data de Nascimento:</label>
+								    <input type="text" id="portador_nascimento" class="span2" placeholder="dd/mm/aaaa">
+								
+								    <label>Telefone:</label>
+								    <input type="text" id="portador_telefone" class="span2" placeholder="(xx) xxxx-xxxx">
+                                </div>
+
+                                <div id="formulario_assinante" class="span4">
+
+                                    <a style="font-weight:bold">DADOS DO ASSINANTE:</a>
+                                    <br><br>
+
+                                    <label>Nome Completo:</label>
+								    <input type="text" id="assinante_nome" placeholder="">
+								    
+								    <label>Email:</label>
+								    <input type="text" id="assinante_email" placeholder="emal@dominio.com">
+								    
+								    <label>Telefone:</label>
+								    <input type="text" id="portador_telefone" placeholder="(xx) xxxx-xxxx">
+                                    
+                                    <label>Id Pr&oacute;prio:</label>
+								    <input type="text" id="assinante_id_proprio" placeholder="">
+                                    
+                                    <label>Endere&ccedil;o:</label>
+								    <input type="text" id="assinante_logradouro" placeholder="rua, avenida, alameda...">
+								    &nbsp;
+                                    <input type="text" id="assinante_numero" class="span1" placeholder="n&#176;">
+                                    <br>
+								    <input type="text" id="assinante_bairro" class="span2" placeholder="bairro">
+								    &nbsp;
+                                    <input type="text" id="assinante_complemento" class="span2" placeholder="complemento">
+                                    <br>
+                                    <input type="text" id="assinante_cidade" class="span2" placeholder="cidade">
+                                    &nbsp;
+                                    <select id="assinante_estado" class="span1">
+								      <option value="AC">AC</option>
+								      <option value="SP">SP</option>
+								      <option value="RJ">RJ</option>
+								      <option value="etc">etc</option>
+                                    </select>
+                                    <br>
+                                    <select id="assinante_pais" class="span1">
+								      <option value="BRA">BRA</option>
+								      <option value="EUA">EUA</option>
+								      <option value="JAP">JAP</option>
+								      <option value="etc">etc</option>
+                                    </select>
+                                    &nbsp;
+                                    <input type="text" id="assinante_cep" class="span2" placeholder="cep">
+                                    <br><br>
+                                    <a id="btnPlay" class="btn btn-inverse">
+							            <i class="icon-play icon-white"></i> play!
+						            </a>
+                                </div>
+
+                            </div>
+							
+						</div>
+						
+						<div class="tab-pane" id="formas_pagamento">
+							Em constru&ccedil;&atilde;o...
+						</div>
+						
+						<div class="tab-pane fade" id="autenticacao">
+							Em constru&ccedil;&atilde;o...
+						</div>
+					</div>
+			  </div>
+			  <div class="span1">&nbsp;</div>
+	
+		</div>
+	
+		<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../js/bootstrap-tab.js"></script>
+		<script>
+			$('#tabsMoipHeader a:first').tab('show');
+		</script>
+	</body>
+</html>
