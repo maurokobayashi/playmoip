@@ -1,6 +1,7 @@
 $(document).ready(function() {
 
     $('#dados_cofre').hide();
+    $('#dados_risco').show();
 
     $('#ckbUsarCofre').click(function() {
         if($('#ckbUsarCofre').is(':checked')) {
@@ -10,6 +11,20 @@ $(document).ready(function() {
         else {
 	        $('#dados_cartao').show();
             $('#dados_cofre').hide();
+        }
+	});
+	
+	
+    $('#ckbAnalisarRisco').click(function() {
+        if($('#ckbAnalisarRisco').is(':checked')) {
+            $('#dados_risco').show();
+            $('#dados_portador').show();
+            $('#dados_endereco').show();
+        }
+        else {
+            $('#dados_risco').hide();
+            $('#dados_portador').hide();
+            $('#dados_endereco').hide();
         }
 	});
 
@@ -46,12 +61,12 @@ $(document).ready(function() {
         });
         $('#numero_cartao').val('4073020000000002');
        $('#expiracao_mes option').each(function() {
-           if($(this).val() == 'Mar'){
+           if($(this).val() == '3'){
                $(this).attr('selected',true);
            }
         });
         $('#expiracao_ano option').each(function() {
-           if($(this).val() == '2015'){
+           if($(this).val() == '15'){
                $(this).attr('selected',true);
            }
         });
