@@ -1,6 +1,7 @@
 $(document).ready(function() {
 
     $('#dados_cofre').hide();
+    $('#dados_risco').show();
 
     $('#ckbUsarCofre').click(function() {
         if($('#ckbUsarCofre').is(':checked')) {
@@ -10,6 +11,20 @@ $(document).ready(function() {
         else {
 	        $('#dados_cartao').show();
             $('#dados_cofre').hide();
+        }
+	});
+	
+	
+    $('#ckbAnalisarRisco').click(function() {
+        if($('#ckbAnalisarRisco').is(':checked')) {
+            $('#dados_risco').show();
+            $('#dados_portador').show();
+            $('#dados_endereco').show();
+        }
+        else {
+            $('#dados_risco').hide();
+            $('#dados_portador').hide();
+            $('#dados_endereco').hide();
         }
 	});
 
@@ -46,24 +61,26 @@ $(document).ready(function() {
         });
         $('#numero_cartao').val('4073020000000002');
        $('#expiracao_mes option').each(function() {
-           if($(this).val() == 'Mar'){
+           if($(this).val() == '3'){
                $(this).attr('selected',true);
            }
         });
         $('#expiracao_ano option').each(function() {
-           if($(this).val() == '2015'){
+           if($(this).val() == '15'){
                $(this).attr('selected',true);
            }
         });
         $('#portador_nome').val('Mauro Kobayashi');
         $('#portador_cpf').val('340.570.298-42');
         $('#portador_nascimento').val('29/04/1986');
-        $('#portador_telefone').val('(11) 8045-6449');
+        $('#portador_telefone_ddd').val('11');
+        $('#portador_telefone').val('8045-6449');
 
         //dados do assinante
         $('#assinante_nome').val('Mauro Kobayashi');
         $('#assinante_email').val('mauro.kobayashi@gmail.com');
-        $('#assinante_telefone').val('(11) 8045-6449');
+        $('#assinante_telefone_ddd').val('11');
+        $('#assinante_telefone').val('8045-6449');
         $('#assinante_id_proprio').val('mem1234');
         $('#assinante_logradouro').val('Rua Mandicununga');
         $('#assinante_numero').val('570');
@@ -121,11 +138,13 @@ $(document).ready(function() {
         $('#portador_nome').val('');
         $('#portador_cpf').val('');
         $('#portador_nascimento').val('');
+        $('#portador_telefone_ddd').val('');
         $('#portador_telefone').val('');
 
         //dados do assinante
         $('#assinante_nome').val('');
         $('#assinante_email').val('');
+        $('#assinante_telefone_ddd').val('');
         $('#assinante_telefone').val('');
         $('#assinante_id_proprio').val('');
         $('#assinante_logradouro').val('');
@@ -168,12 +187,12 @@ $(document).ready(function() {
         var portador_nome = $('#portador_nome').val();
         var portador_cpf = $('#portador_cpf').val();
         var portador_nascimento = $('#portador_nascimento').val();
-        var portador_telefone = $('#portador_telefone').val();
+        var portador_telefone = '(' + $('#portador_telefone_ddd').val() + ') ' + $('#portador_telefone').val();
 
         //dados do assinante
         var assinante_nome = $('#assinante_nome').val();
         var assinante_email = $('#assinante_email').val();
-        var assinante_telefone = $('#assinante_telefone').val();
+        var assinante_telefone = '(' + $('#assinante_telefone_ddd').val() + ') ' + $('#assinante_telefone').val();
         var assinante_id_proprio = $('#assinante_id_proprio').val();
         var assinante_logradouro = $('#assinante_logradouro').val();
         var assinante_numero = $('#assinante_numero').val();

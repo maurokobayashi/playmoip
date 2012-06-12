@@ -53,9 +53,9 @@
 				<div id="page-body">
 	
 					<ul id="tabsMoipHeader" class="nav nav-tabs">
-						<li><a href="#cobranca" data-toggle="tab">COBRAN&Ccedil;A</a></li>
-						<li><a href="#formas_pagamento" data-toggle="tab">FORMAS DE PAGAMENTO</a></li>
-						<li><a href="#autenticacao" data-toggle="tab">AUTENTICA&Ccedil;&Atilde;O</a></li>
+						<li><a href="#cobranca" data-toggle="tab">cobran&ccedil;a</a></li>
+						<li><a href="#formas_pagamento" data-toggle="tab">formas de pagamento</a></li>
+						<li><a href="#autenticacao" data-toggle="tab">autentica&ccedil;&atilde;o</a></li>
 					</ul>
 	
 					<div id="tabsMoipBody" class="tab-content">
@@ -73,39 +73,32 @@
                                     <a style="font-weight:bold">DADOS DA TRANSA&Ccedil;&Atilde;O:</a>
                                     <br><br>
 
-                                    <label>Valor (em centavos) / Login Vendedor:</label>
-                                    <input id="valor" class="span1" type="text" placeholder="R&#36;">
-                                    &nbsp;&nbsp;&nbsp;
-								    <input id="login_vendedor" type="text" class="span2" placeholder="login moip">
-                                    <label>Id Pr&oacute;prio:</label>
-								    <input id="transacao_id_proprio" type="text" placeholder="">
-                                    <label>Id Assinatura:</label>
-								    <input id="assinatura_id_proprio" type="text" placeholder="">
+                                    <label>ID da transa&ccedil;&atilde;o:</label>
+								    <input id="transacao_id_proprio" class="span2" type="text" placeholder="">
+                                    <label>Valor (em centavos):</label>
+                                    <input id="valor" class="span2" type="text" placeholder="R&#36;">
+                                    <label>Login do vendedor:</label>
+								    <input id="login_vendedor" class="span2" type="text" placeholder="login moip">
+                                    <label>ID da assinatura:</label>
+								    <input id="assinatura_id_proprio" class="span2" type="text" placeholder="">
                                     <label>Descri&ccedil;&atilde;o:</label>
 								    <input id="descricao" type="text" placeholder="">
-                                    <label>An&aacute;lise de Risco?</label>
-                                    <div class="control-group">
-                                        <div class="controls">
-                                            <label class="radio inline">
-                                                <input type="radio" name="optionsRadios" id="analise_risco_sim" value="sim" checked="">
-                                                Sim
-                                            </label>
-                                            <label class="radio inline">
-                                                <input type="radio" name="optionsRadios" id="analise_risco_nao" value="nao">
-                                                N&atilde;o
-                                          </label>
-                                        </div>
+								    <br><br>
+                                    <label class="checkbox">
+                                        <input id="ckbAnalisarRisco" type="checkbox" checked="checked"> Analisar risco
+                                    </label>
+                                    <div id="dados_risco">
+                                    	<label>Ocorr&ecirc;ncia:</label>
+	                                    <input id="ocorrencia" class="span2" type="text" placeholder="#">
+	                                    <label>Periodicidade:</label>
+									    <input id="periodicidade_quantidade" type="text" class="span1" placeholder="a cada">      
+									    &nbsp;                              	                                                                        
+										<select id="periodicidade_unidade" class="span2">
+										  <option value="dia">dia(s)</option>
+										  <option value="mes"> m&ecirc;s(es)</option>
+										  <option value="ano"> ano(s)</option>
+										</select>
                                     </div>
-                                    <label>Ocorr&ecirc;ncia / Periodicidade:</label>
-                                    <input id="ocorrencia" class="span1" type="text" placeholder="#">
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								    <input id="periodicidade_quantidade" type="text" class="span1" placeholder="a cada">
-                                    
-                                    <select id="periodicidade_unidade" class="span1">
-								      <option value="dia">dia</option>
-								      <option value="mes"> m&ecirc;s</option>
-								      <option value="ano"> ano</option>
-                                    </select>
                                 </div>
 
                                 <div id="formulario_pagamento" class="span4">
@@ -114,7 +107,7 @@
                                     <br><br>
 
                                     <label class="checkbox">
-                                        <input id="ckbUsarCofre" type="checkbox"> Cobrar com cofre
+                                        <input id="ckbUsarCofre" type="checkbox"> Utilizar cofre do Moip
                                     </label>
 
                                     <div id="dados_cofre">
@@ -152,32 +145,33 @@
                                         /
                                         <select id="expiracao_ano" class="span1">
 								          <option value="">Ano</option>
-								          <option value="2012">2012</option>
-								          <option value="2013">2013</option>
-								          <option value="2014">2014</option>
-								          <option value="2015">2015</option>
-								          <option value="2016">2016</option>
-								          <option value="2017">2017</option>
-								          <option value="1994">1994 - &eacute; tetra</option>
+								          <option value="12">12</option>
+								          <option value="13">13</option>
+								          <option value="14">14</option>
+								          <option value="15">15</option>
+								          <option value="16">16</option>
+								          <option value="Estefan">Estefan</option>
 								        </select>
-
-                                        <br><br>
-                                        <a style="font-weight:bold">DADOS DO PORTADOR:</a>
-                                        <br><br>
-
-								        <label>Nome Completo:</label>
-								        <input type="text" id="portador_nome" placeholder="como aparece no cart&atilde;o">
-								
-								        <label>CPF:</label>
-								        <input type="text" id="portador_cpf" class="span2" placeholder="xxx.xxx.xxx-xx">
-								        <label>Data de Nascimento:</label>
-								        <input type="text" id="portador_nascimento" class="span2" placeholder="dd/mm/aaaa">
-								
-								        <label>Telefone:</label>
-								        <input type="text" id="portador_telefone" class="span2" placeholder="(xx) xxxx-xxxx">
-                                    </div>
-                                    
-                                    
+										
+										<div id="dados_portador">
+											<br>
+											<a style="font-weight:bold">DADOS DO PORTADOR:</a>
+											<br><br>
+	
+											<label>Nome completo:</label>
+											<input type="text" id="portador_nome" placeholder="como aparece no cart&atilde;o">
+									
+											<label>CPF:</label>
+											<input type="text" id="portador_cpf" class="span2" placeholder="xxx.xxx.xxx-xx">
+											<label>Data de nascimento:</label>
+											<input type="text" id="portador_nascimento" class="span2" placeholder="dd/mm/aaaa">
+									
+											<label>Telefone:</label>
+								            <input type="text" id="portador_telefone_ddd" class="span1" placeholder="DDD">
+                                            <input type="text" id="portador_telefone" class="span2" placeholder="">
+										</div>
+                                        
+                                    </div>                                    
                                 </div>
 
                                 <div id="formulario_assinante" class="span4">
@@ -185,46 +179,49 @@
                                     <a style="font-weight:bold">DADOS DO ASSINANTE:</a>
                                     <br><br>
 
-                                    <label>Nome Completo:</label>
+                                    <label>ID do assinante:</label>
+								    <input type="text" id="assinante_id_proprio" class="span2" placeholder="">
+                                    
+                                    <label>Nome completo:</label>
 								    <input type="text" id="assinante_nome" placeholder="">
 								    
 								    <label>Email:</label>
-								    <input type="text" id="assinante_email" placeholder="emal@dominio.com">
+								    <input type="text" id="assinante_email" placeholder="email@dominio.com">
 								    
-								    <label>Telefone:</label>
-								    <input type="text" id="assinante_telefone_ddd" class="span1" placeholder="DDD">
-                                    <input type="text" id="assinante_telefone" class="span2" placeholder="">
-                                    
-                                    <label>Id Pr&oacute;prio:</label>
-								    <input type="text" id="assinante_id_proprio" placeholder="">
-                                    
-                                    <label>Endere&ccedil;o:</label>
-								    <input type="text" id="assinante_logradouro" placeholder="rua, avenida, alameda...">
-								    &nbsp;
-                                    <input type="text" id="assinante_numero" class="span1" placeholder="n&#176;">
+								    <div id="dados_endereco">
+								    	<label>Telefone:</label>
+								        <input type="text" id="assinante_telefone_ddd" class="span1" placeholder="DDD">
+                                        <input type="text" id="assinante_telefone" class="span2" placeholder="">
+										
+										<label>Endere&ccedil;o:</label>
+										<input type="text" id="assinante_logradouro" placeholder="rua, avenida, alameda...">
+										&nbsp;
+										<input type="text" id="assinante_numero" class="span1" placeholder="n&#176;">
+										<br>
+										<input type="text" id="assinante_bairro" class="span2" placeholder="bairro">
+										&nbsp;
+										<input type="text" id="assinante_complemento" class="span2" placeholder="complemento">
+										<br>
+										<input type="text" id="assinante_cidade" class="span2" placeholder="cidade">
+										&nbsp;
+										<select id="assinante_estado" class="span1">
+										  <option value="">UF</option>
+										  <option value="AC">AC</option>
+										  <option value="SP">SP</option>
+										  <option value="RJ">RJ</option>
+										</select>
+										<br>
+										<select id="assinante_pais" class="span1">
+										  <option value="">Pa&iacute;s</option>
+										  <option value="BRA">BRA</option>
+										  <option value="EUA">EUA</option>
+										  <option value="JAP">JAP</option>
+										</select>
+										&nbsp;
+										<input type="text" id="assinante_cep" class="span2" placeholder="CEP">
+								    </div>
+								    
                                     <br>
-								    <input type="text" id="assinante_bairro" class="span2" placeholder="bairro">
-								    &nbsp;
-                                    <input type="text" id="assinante_complemento" class="span2" placeholder="complemento">
-                                    <br>
-                                    <input type="text" id="assinante_cidade" class="span2" placeholder="cidade">
-                                    &nbsp;
-                                    <select id="assinante_estado" class="span1">
-								      <option value="">UF</option>
-								      <option value="AC">AC</option>
-								      <option value="SP">SP</option>
-								      <option value="RJ">RJ</option>
-                                    </select>
-                                    <br>
-                                    <select id="assinante_pais" class="span1">
-								      <option value="">Pa&iacute;s</option>
-								      <option value="BRA">BRA</option>
-								      <option value="EUA">EUA</option>
-								      <option value="JAP">JAP</option>
-                                    </select>
-                                    &nbsp;
-                                    <input type="text" id="assinante_cep" class="span2" placeholder="cep">
-                                    <br><br>
                                     <a id="btnPlay" class="btn btn-inverse">
 							            <i class="icon-repeat icon-white"></i> criar cobranca recorrente
 						            </a>
