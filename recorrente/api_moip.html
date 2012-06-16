@@ -94,9 +94,9 @@
 									    <input id="periodicidade_quantidade" type="text" class="span1" placeholder="a cada">      
 									    &nbsp;                              	                                                                        
 										<select id="periodicidade_unidade" class="span2">
-										  <option value="dia">dia(s)</option>
-										  <option value="mes"> m&ecirc;s(es)</option>
-										  <option value="ano"> ano(s)</option>
+										  <option value="DAYS">dia(s)</option>
+										  <option value="MONTHS"> m&ecirc;s(es)</option>
+										  <option value="YEARS"> ano(s)</option>
 										</select>
                                     </div>
                                 </div>
@@ -111,7 +111,7 @@
                                     </label>
 
                                     <div id="dados_cofre">
-								        <input id="cofre" type="text" placeholder="token do cofre">
+								        <input id="token_cofre" type="text" placeholder="token do cofre">
                                     </div>
 
                                     <div id="dados_cartao">
@@ -119,9 +119,9 @@
                                         <label>Bandeira:</label>
 								        <select id="bandeira">
 								          <option value="">Selecione</option>
-								          <option value="Visa">Visa</option>
-								          <option value="Mastercard">Mastercard</option>
-								          <option value="EstefanCard">EstefanCard</option>
+								          <option value="VISA">Visa</option>
+								          <option value="MASTERCARD">Mastercard</option>
+								          <option value="ESTEFANCARD">EstefanCard</option>
 								        </select>
                                         <label>N&uacute;mero do cart&atilde;o:</label>
 								        <input id="numero_cartao" type="text" placeholder="">						
@@ -145,11 +145,11 @@
                                         /
                                         <select id="expiracao_ano" class="span1">
 								          <option value="">Ano</option>
-								          <option value="12">12</option>
-								          <option value="13">13</option>
-								          <option value="14">14</option>
-								          <option value="15">15</option>
-								          <option value="16">16</option>
+								          <option value="2012">12</option>
+								          <option value="2013">13</option>
+								          <option value="2014">14</option>
+								          <option value="2015">15</option>
+								          <option value="2016">16</option>
 								          <option value="Estefan">Estefan</option>
 								        </select>
 										
@@ -257,8 +257,5 @@
 		<script type="text/javascript" src="../js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="../js/bootstrap-tab.js"></script>
 		<script type="text/javascript" src="js/apimoip/charge.js"></script>
-		<script>
-			$('#tabsMoipHeader a:first').tab('show');
-		</script>
 	</body>
 </html>
